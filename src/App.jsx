@@ -15,6 +15,12 @@ const App = () => {
 		telegram.ready();
 	});
 
+	useEffect(() => {
+		if(cartItems.length > 0)
+			telegram.MainButton.show();
+		else telegram.MainButton.hide();
+	}, [cartItems]);
+
 	const onAddItem = item => {
 		const existItem = cartItems.find(c => c.id == item.id);
 
